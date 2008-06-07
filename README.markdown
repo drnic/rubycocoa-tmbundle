@@ -11,6 +11,11 @@ To install via Git:
 
 Source can be viewed or forked via GitHub: [http://github.com/drnic/rubycocoa-tmbundle/tree/master](http://github.com/drnic/rubycocoa-tmbundle/tree/master)
 
+Features
+========
+
+* Cannot remember whether to use NSRange.new or NSRange.init.alloc? Let the bundle help. Type "NSRange." and press tab and it will attempt to guess for you.
+
 Maintainer
 ==========
 
