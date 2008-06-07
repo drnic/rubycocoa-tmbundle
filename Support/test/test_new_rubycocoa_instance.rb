@@ -6,8 +6,8 @@ class TestNewRubyCocoaInstance < Test::Unit::TestCase
     # Array structure:
     # [current_line, column_number, expected]
     [
-      ['NSTextField.', 13, 'NSTextField.init.alloc'],
-      [' @var = NSTextField.', 21, ' @var = NSTextField.init.alloc'],
+      ['NSTextField', 12, 'NSTextField.init.alloc$0'],
+      [' @var = NSTextField', 20, ' @var = NSTextField.init.alloc$0'],
     ].each do |current_line, column_number, expected|
       replacement_line = NewRubyCocoaInstance.run(current_line, column_number)
       assert_equal(expected, replacement_line)
@@ -18,7 +18,7 @@ class TestNewRubyCocoaInstance < Test::Unit::TestCase
     # Array structure:
     # [current_line, column_number, expected]
     [
-      ['String.', 8, 'String.new'],
+      ['String', 7, 'String.new$0'],
     ].each do |current_line, column_number, expected|
       replacement_line = NewRubyCocoaInstance.run(current_line, column_number)
       assert_equal(expected, replacement_line)
@@ -26,26 +26,23 @@ class TestNewRubyCocoaInstance < Test::Unit::TestCase
   end
   
   def test_valid_activation_of_custom_NSObject_subclass
-    current_line = "  @app = MyApp."
-    column_number = 16
+    current_line = "  @app = MyApp"
+    column_number = 15
     current_file = File.dirname(__FILE__) + "/fixtures/my_app.rb"
-    expected = "  @app = MyApp.init.alloc"
+    expected = "  @app = MyApp.init.alloc$0"
     assert_equal(expected, NewRubyCocoaInstance.run(current_line, column_number, current_file))
   end
   
-  def test_invalid_activation
+  def todo_test_invalid_activation
     # Array structure:
     # [current_line, column_number]
     [
-      ['    ', 3],
-      ['SomeConstant.', 1],
-      ['SomeConstant.', 14],
-      ['String.', 1],
-      ['String.', 7], # cursor not after .
-      ['NSTextField.', 4] # cursor not at correct position
-    ].each do |current_line, column_number|
+      ['    ', 3, '  $0  '],
+      ['blah', 1, '$0blah'],
+      ['SomeConstant', 13, 'SomeConstant$0'],
+    ].each do |current_line, column_number, expected|
       replacement_line = NewRubyCocoaInstance.run(current_line, column_number)
-      assert_equal(current_line, replacement_line, 
+      assert_equal(expected, replacement_line, 
         "'#{current_line}' (cursor #{column_number}) should not activate to anything but itself")
     end
   end
