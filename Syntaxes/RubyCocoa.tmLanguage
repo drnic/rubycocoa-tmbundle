@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>rb</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>(?x)^
+	    (\s*+
+	        (module|class|def
+	        |unless|if
+	        |case
+	        |begin
+	        |for|while|until
+			 |^=begin
+	        |(  "(\\.|[^"])*+"          # eat a double quoted string
+	         | '(\\.|[^'])*+'        # eat a single quoted string
+	         |   [^#"']                # eat all but comments and strings
+	         )*
+	         (                        \s   (do|begin|case)
+	         | (?&lt;!\$)[-+=&amp;|*/~%^&lt;&gt;~] \s*+ (if|unless)
+	         )
+	        )\b
+	        (?! [^;]*+ ; .*? \bend\b )
+	    |(  "(\\.|[^"])*+"              # eat a double quoted string
+	     | '(\\.|[^'])*+'            # eat a single quoted string
+	     |   [^#"']                    # eat all but comments and strings
+	     )*
+	     ( \{ (?!  [^}]*+ \} )
+	     | \[ (?! [^\]]*+ \] )
+	     )
+	    ).*$
+	|   [#] .*? \(fold\) \s*+ $         # Sune’s special marker
+	</string>
+	<key>foldingStopMarker</key>
+	<string>(?x)
+		(   (^|;) \s*+ end   \s*+ ([#].*)? $
+		|   (^|;) \s*+ end \. .* $
+		|   ^     \s*+ [}\]] \s*+ ([#].*)? $
+		|   [#] .*? \(end\) \s*+ $    # Sune’s special marker
+		|   ^=end
+		)</string>
+	<key>keyEquivalent</key>
+	<string>^~R</string>
+	<key>name</key>
+	<string>RubyCocoa</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>source.ruby</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.ruby.cocoa</string>
+	<key>uuid</key>
+	<string>6176DA4C-93A7-460D-B4CC-B7CD98A6A934</string>
+</dict>
+</plist>
