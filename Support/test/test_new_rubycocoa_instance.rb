@@ -7,6 +7,7 @@ class TestNewRubyCocoaInstance < Test::Unit::TestCase
     # [current_line, column_number, expected]
     [
       ['NSTextField.', 13, 'NSTextField.init.alloc'],
+      [' @var = NSTextField.', 21, ' @var = NSTextField.init.alloc'],
     ].each do |current_line, column_number, expected|
       replacement_line = NewRubyCocoaInstance.run(current_line, column_number)
       assert_equal(expected, replacement_line)
@@ -22,6 +23,14 @@ class TestNewRubyCocoaInstance < Test::Unit::TestCase
       replacement_line = NewRubyCocoaInstance.run(current_line, column_number)
       assert_equal(expected, replacement_line)
     end
+  end
+  
+  def test_valid_activation_of_custom_NSObject_subclass
+    current_line = "  @app = MyApp."
+    column_number = 16
+    current_file = File.dirname(__FILE__) + "/fixtures/my_app.rb"
+    expected = "  @app = MyApp.init.alloc"
+    assert_equal(expected, NewRubyCocoaInstance.run(current_line, column_number, current_file))
   end
   
   def test_invalid_activation

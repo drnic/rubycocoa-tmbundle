@@ -2,21 +2,21 @@ module NewRubyCocoaInstance
   extend self
   
   # column_number starts at 1 and represents a range of 0 characters
-  def run(current_line, column_number)
+  def run(current_line, column_number, current_file = nil)
     cursor_index = (column_number - 2) < 0 ? 0 : (column_number-2)
     partial_line = current_line[0..cursor_index]
-    return current_line unless partial_line =~ %r{([A-Z]\w+)\.$}
-    constant_str = $1
-    load_env
+    return current_line unless partial_line =~ %r{(.*)\b([A-Z]\w+)\.$}
+    constant_str, prefix = $2, $1
+    load_env(current_file)
     constant = to_constant constant_str
     return current_line unless constant
     instantiator = constant.ancestors.include?(OSX::NSObject) ? "init.alloc" : "new"
-    "#{constant_str}.#{instantiator}"
+    "#{prefix}#{constant_str}.#{instantiator}"
   end
   
-  def load_env
+  def load_env(current_file = nil)
     require 'osx/cocoa'
-    # TODO - load current file too
+    require current_file if current_file
   end
   
   def to_constant(constant_str)
