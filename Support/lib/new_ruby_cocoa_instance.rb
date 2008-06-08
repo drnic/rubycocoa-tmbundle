@@ -16,7 +16,7 @@ module NewRubyCocoaInstance
   
   def load_env(current_file = nil)
     require 'osx/cocoa'
-    require current_file if current_file
+    require current_file rescue nil if current_file
   end
   
   def to_constant(constant_str)

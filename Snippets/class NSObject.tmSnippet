@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:Class} &lt; ${2:OSX::}NSObject
+	$0
+end</string>
+	<key>name</key>
+	<string>class NSObject</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>clan</string>
+	<key>uuid</key>
+	<string>91CF63EC-B137-4326-810B-31AF9BD928D6</string>
+</dict>
+</plist>
