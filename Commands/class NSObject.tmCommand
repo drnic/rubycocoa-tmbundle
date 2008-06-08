@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+class_name = File.basename(ENV['TM_FILENAME']).sub(/\.rb$/, '')
+puts &lt;&lt;-SNIPPET
+class ${1:#{class_name}} &lt; ${2:OSX::}NSObject
+	include OSX
+	$0
+end
+SNIPPET</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>class NSObject</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>clan</string>
+	<key>uuid</key>
+	<string>18636BD6-FAB9-43F5-9033-4336E185C46A</string>
+</dict>
+</plist>
