@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>ib_outlet :$1</string>
+	<key>name</key>
+	<string>ib_outlet</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>ibo</string>
+	<key>uuid</key>
+	<string>7F13732A-EFDA-493D-9752-DF3105565CDE</string>
+</dict>
+</plist>
