@@ -15,6 +15,7 @@ Features
 ========
 
 * Cannot remember whether to use NSRange.new or NSRange.init.alloc? Let the bundle help. Type "NSRange." and press tab and it will attempt to guess for you.
+* 'clan' expands into a class definition for the current file name, as an `OSX::NSObject` subclass (the tab completion comes from: *cla*ss *N*SObject)
 
 Maintainer
 ==========
