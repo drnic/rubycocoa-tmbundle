@@ -10,13 +10,14 @@ module NewRubyCocoaInstance
     load_env(current_file)
     constant = to_constant constant_str
     return current_line unless constant
-    instantiator = constant.ancestors.include?(OSX::NSObject) ? "init.alloc" : "new"
+    instantiator = constant.ancestors.include?(OSX::NSObject) ? "alloc.init" : "new"
     "#{prefix}#{constant_str}.#{instantiator}$0"
   end
   
   def load_env(current_file = nil)
     require 'osx/cocoa'
     require current_file rescue nil if current_file
+    Test::Unit.run = true if defined? Test::Unit
   end
   
   def to_constant(constant_str)
