@@ -9,7 +9,8 @@
 
 class_name = File.basename(ENV['TM_FILENAME']).sub(/\.rb$/, '')
 puts &lt;&lt;-SNIPPET
-class ${1:#{class_name}} &lt; ${2:OSX::}NSObject
+${1:require "osx/cocoa"
+}class ${2:#{class_name}} &lt; ${3:OSX::}NSObject
 	include OSX
 	$0
 end

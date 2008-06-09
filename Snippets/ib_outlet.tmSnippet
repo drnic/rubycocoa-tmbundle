@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>ib_outlet :$1</string>
+	<string>ib_outlets :$1</string>
 	<key>name</key>
-	<string>ib_outlet</string>
+	<string>ib_outlets</string>
 	<key>scope</key>
 	<string>source.ruby.cocoa</string>
 	<key>tabTrigger</key>
