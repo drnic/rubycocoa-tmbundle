@@ -8,6 +8,7 @@ To install via Git:
 
 		cd ~/"Library/Application Support/TextMate/Bundles/"
 		git clone git://github.com/drnic/rubycocoa-tmbundle.git "RubyCocoa.tmbundle"
+		osascript -e 'tell app "TextMate" to reload bundles'
 
 Source can be viewed or forked via GitHub: [http://github.com/drnic/rubycocoa-tmbundle/tree/master](http://github.com/drnic/rubycocoa-tmbundle/tree/master)
 
