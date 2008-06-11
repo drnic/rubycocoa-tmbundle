@@ -3,16 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>ib_action :$1 do |sender|
+	<string>class ${1:`#!/usr/bin/env ruby
+    require 'rubygems'
+    require "active_support"
+    puts ENV['TM_FILENAME'].gsub(/\.rb$/, '').camelize.singularize
+	`} &lt; ${2:OSX::}NSObject
+	include OSX
 	$0
 end</string>
 	<key>name</key>
-	<string>ib_action</string>
+	<string>class NSObject .. end</string>
 	<key>scope</key>
 	<string>source.ruby.cocoa</string>
 	<key>tabTrigger</key>
-	<string>iba</string>
+	<string>clan</string>
 	<key>uuid</key>
-	<string>EB525D26-3281-4356-86CC-370F4569B56A</string>
+	<string>CD9A328B-E64A-4A05-8136-F7D9CFE72B81</string>
 </dict>
 </plist>
