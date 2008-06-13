@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>ib_action :$1 do |${2:sender}|
+	<string>ib_action :${1:`#!/usr/bin/env ruby
+	method = \`pbpaste\`
+	method = "actionMethod" unless method &amp;&amp; method.length &gt; 0
+	puts method.gsub(/:$/,'').gsub(/\:/, '_')
+	`} do |${2:sender}|
 	$0
 end</string>
 	<key>name</key>
