@@ -11,10 +11,24 @@ method = `pbpaste`
 method = "actionMethod" unless method &amp;&amp; method.length &gt; 0
 method = method.gsub(/:$/,'').gsub(/\:/, '_').strip
 
+def find_concept(argument)
+  if argument =~ %r{/For(.*)$/i}
+    return $1
+  else
+    argument
+  end
+end
 arguments = method.split('_')
-# $1 was the action name, so $2 is first argument name
-index = 1
-parameters = arguments.map { |arg| "${#{index += 1}:#{arg}}" }.join(", ")
+parameters = if arguments.length &gt; 1
+  # $1 was the action name, so $2 is first argument name
+  index = 1
+  arguments.map do |arg| 
+    argument = find_concept(arg)
+    "${#{index += 1}:#{argument}}"
+  end.join(", ")
+else
+  'sender' # if only one argument, then use generic sender label instead since method name doubtfully useful
+end
 
 puts &lt;&lt;-SNIPPET
 ib_action :${1:#{method}} do |#{parameters}|
