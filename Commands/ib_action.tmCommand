@@ -11,9 +11,12 @@ method = `pbpaste`
 method = "actionMethod" unless method &amp;&amp; method.length &gt; 0
 method = method.gsub(/:$/,'').gsub(/\:/, '_').strip
 
+# objectValueForTableColumn -&gt; tableColumn
+# numberOfRowsInTableView -&gt; tableView
 def find_concept(argument)
-  if argument =~ %r{/For(.*)$/i}
-    return $1
+  if argument =~ /(?:for|in|set|from|find|remove)(.*)$/i
+    concept = $1
+    return concept[0..0].downcase + concept[1..-1]
   else
     argument
   end
@@ -27,7 +30,9 @@ parameters = if arguments.length &gt; 1
     "${#{index += 1}:#{argument}}"
   end.join(", ")
 else
-  'sender' # if only one argument, then use generic sender label instead since method name doubtfully useful
+  concept = find_concept arguments.first
+  # if only one argument, then use generic sender label instead since method name doubtfully useful, unless concept found
+  concept == arguments.first ? 'sender' : concept
 end
 
 puts &lt;&lt;-SNIPPET
