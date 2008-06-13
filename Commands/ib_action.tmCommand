@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+method = `pbpaste`
+method = ENV['TM_CURRENT_WORD'] || "actionMethod" unless method &amp;&amp; method.length &gt; 0
+method = "actionMethod" unless method &amp;&amp; method.length &gt; 0
+method = method.gsub(/:$/,'').gsub(/\:/, '_').strip
+
+arguments = method.split('_')
+# $1 was the action name, so $2 is first argument name
+index = 1
+parameters = arguments.map { |arg| "${#{index += 1}:#{arg}}" }.join(", ")
+
+puts &lt;&lt;-SNIPPET
+ib_action ${1:#{method}} do |#{parameters}|
+	$0
+end
+  SNIPPET
+  
+# end</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>ib_action</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>iba</string>
+	<key>uuid</key>
+	<string>9E7D4397-C142-44D0-B4D2-87857ABA724D</string>
+</dict>
+</plist>
