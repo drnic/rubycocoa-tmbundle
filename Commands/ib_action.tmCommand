@@ -8,7 +8,6 @@
 	<string>#!/usr/bin/env ruby
 
 method = `pbpaste`
-method = ENV['TM_CURRENT_WORD'] || "actionMethod" unless method &amp;&amp; method.length &gt; 0
 method = "actionMethod" unless method &amp;&amp; method.length &gt; 0
 method = method.gsub(/:$/,'').gsub(/\:/, '_').strip
 
