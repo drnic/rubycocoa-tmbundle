@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>ib_action :$1 do |sender|
+	<string>ib_action :$1 do |${2:sender}|
 	$0
 end</string>
 	<key>name</key>
