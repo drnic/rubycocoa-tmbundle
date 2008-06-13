@@ -17,7 +17,7 @@ index = 1
 parameters = arguments.map { |arg| "${#{index += 1}:#{arg}}" }.join(", ")
 
 puts &lt;&lt;-SNIPPET
-ib_action ${1:#{method}} do |#{parameters}|
+ib_action :${1:#{method}} do |#{parameters}|
 	$0
 end
   SNIPPET
