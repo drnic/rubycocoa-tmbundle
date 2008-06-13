@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>def awakeFromNib
+	$0
+end</string>
+	<key>name</key>
+	<string>awakeFromNib</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>afn</string>
+	<key>uuid</key>
+	<string>22689879-262F-4418-8641-598260931B51</string>
+</dict>
+</plist>
