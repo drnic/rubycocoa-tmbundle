@@ -14,7 +14,7 @@ method = method.gsub(/:$/,'').gsub(/\:/, '_').strip
 # objectValueForTableColumn -&gt; tableColumn
 # numberOfRowsInTableView -&gt; tableView
 def find_concept(argument)
-  if argument =~ /(?:for|in|set|from|find|remove)(.*)$/i
+  if argument =~ /(?:For|In|Set|From|Find|Remove|Change|With)(.*)$/
     concept = $1
     return concept[0..0].downcase + concept[1..-1]
   else

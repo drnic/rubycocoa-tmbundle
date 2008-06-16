@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>kvc_array_accessor :$1</string>
+	<key>name</key>
+	<string>kvc_array_accessor</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>kvca</string>
+	<key>uuid</key>
+	<string>A5067800-59F8-4D18-9F4F-79871AC3EE3E</string>
+</dict>
+</plist>

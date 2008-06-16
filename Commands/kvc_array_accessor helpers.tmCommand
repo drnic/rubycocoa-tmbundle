@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
+"${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/kvc_array_accessor_helpers.rb"</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>kvc_array_accessor helpers</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>kvca.</string>
+	<key>uuid</key>
+	<string>DA19281D-85D6-417B-9A2A-B243C5EFB3EF</string>
+</dict>
+</plist>

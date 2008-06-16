@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>NSColor.${1:${2:black}Color}.set</string>
+	<key>name</key>
+	<string>NSColor.xxxColor.set</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>tabTrigger</key>
+	<string>color</string>
+	<key>uuid</key>
+	<string>E917D3B3-1133-41BB-BD3A-0DA07EB9F6D5</string>
+</dict>
+</plist>
