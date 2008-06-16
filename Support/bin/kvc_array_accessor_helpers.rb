@@ -15,7 +15,7 @@ end
 
 
 keyname = if keynames.length > 1
-  # TODO
+  TextMate::UI.request_item(:items => keynames.map {|s| s.to_s}.sort, :title => "Select a kvc_array_accessor:")
 else
   keynames.first
 end
