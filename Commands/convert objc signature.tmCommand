@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+require "#{ENV['TM_SUPPORT_PATH']}/lib/objc_method_signature"
+
+puts ObjcMethodSignature.new(ENV['TM_SELECTED_TEXT']).to_def</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>@m</string>
+	<key>name</key>
+	<string>Method from ObjC Method Signature</string>
+	<key>output</key>
+	<string>openAsNewDocument</string>
+	<key>scope</key>
+	<string>source.ruby.cocoa</string>
+	<key>uuid</key>
+	<string>817AD07E-9E16-4129-8F26-701FF013BC2D</string>
+</dict>
+</plist>
