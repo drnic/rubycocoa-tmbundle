@@ -8,7 +8,7 @@
 	<string>#!/usr/bin/env ruby
 
 method = `pbpaste`
-method = "actionMethod" unless method &amp;&amp; method.length &gt; 0
+method = "methodName" unless method &amp;&amp; method.length &gt; 0
 method = method.gsub(/:$/,'').gsub(/\([^)]+\)/,'').gsub(/\:/, '_').strip
 
 # objectValueForTableColumn -&gt; tableColumn
@@ -21,9 +21,22 @@ def find_concept(argument)
     argument
   end
 end
+arguments = method.split('_')
+parameters = if arguments.length &gt; 1
+  # $1 was the action name, so $2 is first argument name
+  index = 1
+  arguments.map do |arg| 
+    argument = find_concept(arg)
+    "${#{index += 1}:#{argument}}"
+  end.join(", ")
+else
+  concept = find_concept arguments.first
+  # if only one argument, then use generic sender label instead since method name doubtfully useful, unless concept found
+  concept == arguments.first ? 'sender' : concept
+end
 
 puts &lt;&lt;-SNIPPET
-ib_action :${1:#{method}} do |sender|
+def self.${1:#{method}}(#{parameters})
 	$0
 end
   SNIPPET
@@ -34,14 +47,14 @@ end
 	<key>input</key>
 	<string>selection</string>
 	<key>name</key>
-	<string>ib_action</string>
+	<string>class method from obj-c name copy</string>
 	<key>output</key>
 	<string>insertAsSnippet</string>
 	<key>scope</key>
 	<string>source.ruby.cocoa</string>
 	<key>tabTrigger</key>
-	<string>iba</string>
+	<string>M</string>
 	<key>uuid</key>
-	<string>9E7D4397-C142-44D0-B4D2-87857ABA724D</string>
+	<string>BB331709-F804-4E5B-97FF-6B8DBA379231</string>
 </dict>
 </plist>
